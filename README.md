@@ -9,7 +9,7 @@ Press F3 on a source file and read it right there – with syntax highlighting, 
 
 ## Supported languages
 
-C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
+C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
 
 Files without an extension are recognized by their name (`Makefile`, `Dockerfile`) or by a `#!` line.
 
@@ -22,7 +22,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
 - Light and dark design (automatic like Windows, or fixed) in the Windows 11 look; color schemes Ayu Light, Ayu Dark and Ayu Mirage
-- Text encodings: UTF-8, UTF-16 (with or without BOM) and the Windows code page; files up to 512 MB
+- Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
 - English and German user interface (follows the Windows language)
 
@@ -54,7 +54,7 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 | Arrow keys, Page Up / Down, Home, End | Scroll |
 | F1 | About |
 
-More options – *Word wrap*, *Minimap*, *Line numbers*, *Tab width*, *Theme*, *Color scheme*, *Font…* – are in the context menu (right click).
+More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Top bar*, *Tab width*, *Theme*, *Color scheme*, *Font…* – are in the context menu (right click).
 
 ## Settings
 
@@ -62,7 +62,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Tab width*, *Theme*, *
 
 | Key | Values | Meaning |
 |---|---|---|
-| `Theme` | `0` automatic (default), `1` light, `2` dark | `0` is dark if Total Commander or Windows is dark |
+| `Theme` | `0` automatic (default), `1` light, `2` dark, `3` like Total Commander | `0` is dark if Total Commander or Windows is dark; `3` follows only Total Commander's dark mode |
 | `LightScheme` | scheme name (default `Ayu Light`) | Color scheme in light mode |
 | `DarkScheme` | scheme name (default `Ayu Dark`) | Color scheme in dark mode (also `Ayu Mirage`) |
 | `Font` | font name (default `Cascadia Mono`) | Code font, fixed-pitch fonts only |
@@ -72,6 +72,8 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Tab width*, *Theme*, *
 | `LineNumbers` | `1` / `0` (default `1`) | Line numbers |
 | `Formatted` | `1` / `0` (default `0`) | Show formatted |
 | `Minimap` | `1` / `0` (default `0`) | Minimap |
+| `TopBar` | `1` / `0` (default `1`) | Top bar with language, word wrap, minimap and *Show formatted*. `0` hides it; everything stays available in the context menu. |
+| `Cursor` | `1` / `0` (default `1`) | Text cursor: arrow keys move it (Shift selects, Ctrl+arrows jump by word, Ctrl+Home / End), instead of scrolling |
 
 ## License
 

@@ -9,7 +9,7 @@ F3 auf einer Quelltext-Datei, und sie lässt sich direkt lesen – mit Syntaxher
 
 ## Unterstützte Sprachen
 
-C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (mit eingebettetem CSS und JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry-Dateien, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (jede Spalte in einer eigenen Farbe) und Syntas eigene Definitionsdateien.
+C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (mit eingebettetem CSS und JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry-Dateien, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (jede Spalte in einer eigenen Farbe) und Syntas eigene Definitionsdateien.
 
 Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an einer `#!`-Zeile erkannt.
 
@@ -22,7 +22,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an ein
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
 - Helles und dunkles Design (automatisch wie Windows oder fest) im Windows-11-Stil; Farbschemen Ayu Light, Ayu Dark und Ayu Mirage
-- Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und die Windows-Codepage; Dateien bis 512 MB
+- Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); Dateien bis 512 MB
 - Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition
 - Deutsche und englische Oberfläche (folgt der Windows-Sprache)
 
@@ -54,7 +54,7 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 | Pfeiltasten, Bild auf / ab, Pos1, Ende | Scrollen |
 | F1 | Über Synta |
 
-Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Tabulatorbreite*, *Design*, *Farbschema*, *Schriftart…* – stehen im Kontextmenü (Rechtsklick).
+Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, *Obere Leiste*, *Tabulatorbreite*, *Design*, *Farbschema*, *Schriftart…* – stehen im Kontextmenü (Rechtsklick).
 
 ## Einstellungen
 
@@ -62,7 +62,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Tabulatorbrei
 
 | Schlüssel | Werte | Bedeutung |
 |---|---|---|
-| `Theme` | `0` automatisch (Standard), `1` hell, `2` dunkel | `0` ist dunkel, wenn der Total Commander oder Windows dunkel ist |
+| `Theme` | `0` automatisch (Standard), `1` hell, `2` dunkel, `3` wie Total Commander | `0` ist dunkel, wenn der Total Commander oder Windows dunkel ist; `3` folgt nur dem Dunkelmodus des Total Commanders |
 | `LightScheme` | Schemaname (Standard `Ayu Light`) | Farbschema im hellen Design |
 | `DarkScheme` | Schemaname (Standard `Ayu Dark`) | Farbschema im dunklen Design (auch `Ayu Mirage`) |
 | `Font` | Schriftname (Standard `Cascadia Mono`) | Code-Schriftart, nur Festbreitenschriften |
@@ -72,6 +72,8 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Tabulatorbrei
 | `LineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern |
 | `Formatted` | `1` / `0` (Standard `0`) | Formatiert anzeigen |
 | `Minimap` | `1` / `0` (Standard `0`) | Minimap |
+| `TopBar` | `1` / `0` (Standard `1`) | Obere Leiste mit Sprache, Zeilenumbruch, Minimap und *Formatiert anzeigen*. `0` blendet sie aus; alles bleibt im Kontextmenü erreichbar. |
+| `Cursor` | `1` / `0` (Standard `1`) | Textcursor: Die Pfeiltasten bewegen ihn (Umschalt markiert, Strg+Pfeile springen wortweise, Strg+Pos1 / Ende) statt zu scrollen |
 
 ## Lizenz
 
