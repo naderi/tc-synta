@@ -21,7 +21,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
-- Light and dark design (automatic like Windows, or fixed) in the Windows 11 look; color schemes Ayu Light, Ayu Dark and Ayu Mirage
+- Light and dark design (automatic like Windows, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
 - English and German user interface (follows the Windows language)
