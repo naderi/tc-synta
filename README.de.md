@@ -21,7 +21,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an ein
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
-- Helles und dunkles Design (automatisch wie Windows oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
+- Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
 - Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); Dateien bis 512 MB
 - Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition
 - Deutsche und englische Oberfläche (folgt der Windows-Sprache)
@@ -32,6 +32,18 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an ein
 - `Themes\*.theme`: eine Datei pro Farbschema; Farben als `#RRGGBB` oder `#RRGGBBAA`, optional fett / kursiv.
 - Kontextmenü → *Ordner „Languages“ öffnen* / *Ordner „Themes“ öffnen*. Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
 - Um eine eingebaute Sprache zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.
+
+## Erkennungszeichenfolge
+
+Der Total Commander bietet Synta nur die Dateien an, auf die seine *Erkennungszeichenfolge* (Detect string) passt. Synta baut sie bei der Installation aus den Endungen aller `Languages\*.lang`-Dateien; im Synta öffnen sich also nur bekannte Quelltext-Typen (dazu Dateien ohne Endung, die Synta selbst prüft). `.ts` und `.mts` brauchen den Term `MULTIMEDIA`, weil der Total Commander sie als Video behandelt.
+
+Für die Erkennungszeichenfolge erlaubt der Total Commander 2 KB. Wird die Liste der Endungen länger (viele eigene Sprachen), weicht Synta auf „alles außer üblichen Binärtypen“ aus (`!(EXT="EXE"|EXT="DLL"|…)`); Dateien ohne Sprache lehnt Synta dann beim Laden ab.
+
+Um Synta auf die gewünschten Typen zu beschränken, ändere die Zeichenfolge unter *Konfigurieren → Optionen → Plugins → Lister-Plugins → Synta → Konfigurieren* oder `detect=` im Abschnitt `[ListerPlugins]` der `wincmd.ini` (nur bei geschlossenem Total Commander):
+
+```
+EXT=""|EXT="C"|EXT="H"|EXT="CPP"|EXT="PY"|EXT="JS"|EXT="JSON"|EXT="LANG"|EXT="THEME"|(MULTIMEDIA & (EXT="TS"|EXT="MTS"))
+```
 
 ## Download und Installation
 
@@ -54,7 +66,7 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 | Pfeiltasten, Bild auf / ab, Pos1, Ende | Scrollen |
 | F1 | Über Synta |
 
-Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, *Obere Leiste*, *Tabulatorbreite*, *Design*, *Farbschema*, *Schriftart…* – stehen im Kontextmenü (Rechtsklick).
+Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, *Knöpfe* (oben, Statusleiste oder ausgeblendet), *Tabulatorbreite*, *Zeilenabstand*, *Design*, *Farbschema*, *Schriftart…* – stehen im Kontextmenü (Rechtsklick).
 
 ## Einstellungen
 
@@ -72,7 +84,8 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `LineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern |
 | `Formatted` | `1` / `0` (Standard `0`) | Formatiert anzeigen |
 | `Minimap` | `1` / `0` (Standard `0`) | Minimap |
-| `TopBar` | `1` / `0` (Standard `1`) | Obere Leiste mit Sprache, Zeilenumbruch, Minimap und *Formatiert anzeigen*. `0` blendet sie aus; alles bleibt im Kontextmenü erreichbar. |
+| `Buttons` | `1` / `2` / `0` (Standard `1`) | Wo die Knöpfe für Sprache, Zeilenumbruch, Minimap und *Formatiert anzeigen* sitzen: `1` obere Leiste, `2` Statusleiste, `0` ausgeblendet; alles bleibt im Kontextmenü erreichbar. Ein älteres `TopBar=0` wird zu `2`. |
+| `LineSpacing` | `0`–`40` (Standard `4`) | Zusätzlicher Zeilenabstand in Pixeln |
 | `Cursor` | `1` / `0` (Standard `1`) | Textcursor: Die Pfeiltasten bewegen ihn (Umschalt markiert, Strg+Pfeile springen wortweise, Strg+Pos1 / Ende) statt zu scrollen |
 
 ## Lizenz

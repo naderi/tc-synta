@@ -21,7 +21,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
-- Light and dark design (automatic like Windows, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
+- Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
 - English and German user interface (follows the Windows language)
@@ -32,6 +32,18 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - `Themes\*.theme`: one file per color scheme; colors as `#RRGGBB` or `#RRGGBBAA`, optionally bold / italic.
 - Context menu → *Open "Languages" folder* / *Open "Themes" folder*. New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
 - To change a built-in language, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
+
+## Detect string
+
+Total Commander only offers Synta the files its *detect string* matches. Synta builds it from the extensions of all `Languages\*.lang` files when the plugin is installed, so only known source file types open in Synta (plus files without an extension, which Synta checks itself). `.ts` and `.mts` need the `MULTIMEDIA` term, because Total Commander treats them as video.
+
+Total Commander allows 2 KB for the detect string. If the list of extensions gets longer than that (many own languages), Synta falls back to "everything except common binary types" (`!(EXT="EXE"|EXT="DLL"|…)`); files without a language are then declined when they are loaded.
+
+To limit Synta to the types you want, edit the string in *Configuration → Options → Plugins → Lister plugins → Synta → Configure*, or `detect=` in the `[ListerPlugins]` section of `wincmd.ini` (only with Total Commander closed):
+
+```
+EXT=""|EXT="C"|EXT="H"|EXT="CPP"|EXT="PY"|EXT="JS"|EXT="JSON"|EXT="LANG"|EXT="THEME"|(MULTIMEDIA & (EXT="TS"|EXT="MTS"))
+```
 
 ## Download and installation
 
@@ -54,7 +66,7 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 | Arrow keys, Page Up / Down, Home, End | Scroll |
 | F1 | About |
 
-More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Top bar*, *Tab width*, *Theme*, *Color scheme*, *Font…* – are in the context menu (right click).
+More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons* (top, status bar or hidden), *Tab width*, *Line spacing*, *Theme*, *Color scheme*, *Font…* – are in the context menu (right click).
 
 ## Settings
 
@@ -72,7 +84,8 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Top bar
 | `LineNumbers` | `1` / `0` (default `1`) | Line numbers |
 | `Formatted` | `1` / `0` (default `0`) | Show formatted |
 | `Minimap` | `1` / `0` (default `0`) | Minimap |
-| `TopBar` | `1` / `0` (default `1`) | Top bar with language, word wrap, minimap and *Show formatted*. `0` hides it; everything stays available in the context menu. |
+| `Buttons` | `1` / `2` / `0` (default `1`) | Where the language, word wrap, minimap and *Show formatted* buttons sit: `1` top bar, `2` status bar, `0` hidden; everything stays available in the context menu. An older `TopBar=0` becomes `2`. |
+| `LineSpacing` | `0`–`40` (default `4`) | Extra space between lines in pixels |
 | `Cursor` | `1` / `0` (default `1`) | Text cursor: arrow keys move it (Shift selects, Ctrl+arrows jump by word, Ctrl+Home / End), instead of scrolling |
 
 ## License
