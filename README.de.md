@@ -11,7 +11,7 @@ F3 auf einer Quelltext-Datei, und sie lässt sich direkt lesen – mit Syntaxher
 
 C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (mit eingebettetem CSS und JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry-Dateien, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (jede Spalte in einer eigenen Farbe) und Syntas eigene Definitionsdateien.
 
-Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an einer `#!`-Zeile erkannt.
+Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#!`-Zeile oder (bei Registry-Exporten) an der Kopfzeile erkannt; jede andere Textdatei ohne Endung wird als reiner Text angezeigt (`ExtensionlessText=0` in `Synta.ini` schaltet das ab).
 
 ## Funktionen
 
@@ -19,6 +19,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an ein
 - Zeilenumbruch, Minimap, Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
+- URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist)
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
@@ -29,6 +30,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) oder an ein
 ## Eigene Sprachen und Farbschemen
 
 - `Languages\*.lang`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Languages\_template.lang` erklärt jeden Schlüssel.
+- `Languages\global.lang`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. Reine Textdateien (`.txt`, `.log`) zeigt `Languages	ext.lang`.
 - `Themes\*.theme`: eine Datei pro Farbschema; Farben als `#RRGGBB` oder `#RRGGBBAA`, optional fett / kursiv.
 - Kontextmenü → *Ordner „Languages“ öffnen* / *Ordner „Themes“ öffnen*. Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
 - Um eine eingebaute Sprache zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.

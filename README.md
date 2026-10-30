@@ -11,7 +11,7 @@ Press F3 on a source file and read it right there – with syntax highlighting, 
 
 C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
 
-Files without an extension are recognized by their name (`Makefile`, `Dockerfile`) or by a `#!` line.
+Files without an extension are recognized by their name (`Makefile`, `Dockerfile`) by a `#!` line or, for Registry exports, by the header; any other text file without an extension is shown as plain text (`ExtensionlessText=0` in `Synta.ini` turns this off).
 
 ## Features
 
@@ -19,6 +19,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Word wrap, minimap, line numbers, indent guides, highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
+- URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held)
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
@@ -29,6 +30,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 ## Own languages and color schemes
 
 - `Languages\*.lang`: one file per language (keywords, comments, strings, …). `Languages\_template.lang` explains every key.
+- `Languages\global.lang`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. Plain text files (`.txt`, `.log`) are shown by `Languages	ext.lang`.
 - `Themes\*.theme`: one file per color scheme; colors as `#RRGGBB` or `#RRGGBBAA`, optionally bold / italic.
 - Context menu → *Open "Languages" folder* / *Open "Themes" folder*. New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
 - To change a built-in language, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
