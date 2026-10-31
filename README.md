@@ -24,7 +24,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
-- Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
+- Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); DOS text (box drawing characters, umlauts) is recognized as CP437/CP850/CP852/CP866, and NFO, DIZ, ASC and ANS files open as CP437 by default; files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
 - English and German user interface (follows the Windows language)
 
@@ -93,6 +93,8 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `LinkClick` | `1` / `0` (default `0`) | `1`: a plain click on a link opens it (a click that selects text does not); `0`: Ctrl+click |
 | `LinkUnderline` | `1` / `0` (default `0`) | Underline links |
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
+| `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |
+| `DefaultCodepage` | code page number, e.g. `437`, `1251` (default `0` = the Windows code page) | Code page for files that are not UTF-8 and where detection finds nothing better |
 
 ## License
 

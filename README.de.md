@@ -24,7 +24,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
 - Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet; bei markiertem Text druckt "Markierung" nur diesen Text
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
-- Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); Dateien bis 512 MB
+- Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); DOS-Text (Rahmenzeichen, Umlaute) wird als CP437/CP850/CP852/CP866 erkannt, NFO-, DIZ-, ASC- und ANS-Dateien öffnen standardmäßig als CP437; Dateien bis 512 MB
 - Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition
 - Deutsche und englische Oberfläche (folgt der Windows-Sprache)
 
@@ -93,6 +93,8 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `LinkClick` | `1` / `0` (Standard `0`) | `1`: Ein einfacher Klick auf einen Link öffnet ihn (ein Klick, der Text markiert, nicht); `0`: Strg+Klick |
 | `LinkUnderline` | `1` / `0` (Standard `0`) | Links unterstreichen |
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
+| `DetectEncoding` | `1` / `0` (Standard `1`) | Codepage von Dateien erraten, die nicht UTF-8 sind; `0` nimmt immer `DefaultCodepage` |
+| `DefaultCodepage` | Codepage-Nummer, z. B. `437`, `1251` (Standard `0` = Windows-Codepage) | Codepage für Dateien, die nicht UTF-8 sind und bei denen die Erkennung nichts Besseres findet |
 
 ## Lizenz
 
