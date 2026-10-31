@@ -22,7 +22,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
-- Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet
+- Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet; bei markiertem Text druckt "Markierung" nur diesen Text
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
 - Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); Dateien bis 512 MB
 - Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition

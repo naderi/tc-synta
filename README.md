@@ -22,7 +22,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
-- Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected
+- Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
