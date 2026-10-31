@@ -17,7 +17,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 
 - **Formatiert anzeigen** (Strg+B, Schalter oben rechts): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
 - Zeilenumbruch (`W`), Minimap, Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
-- Sprachauswahl oben links, falls eine Datei falsch erkannt wurde
+- Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
@@ -87,7 +87,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `LineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern |
 | `Formatted` | `1` / `0` (Standard `0`) | Formatiert anzeigen |
 | `Minimap` | `1` / `0` (Standard `0`) | Minimap |
-| `Buttons` | `1` / `2` / `0` (Standard `1`) | Wo die Knöpfe für Sprache, Zeilenumbruch, Minimap und *Formatiert anzeigen* sitzen: `1` obere Leiste, `2` Statusleiste, `0` ausgeblendet; alles bleibt im Kontextmenü erreichbar. Ein älteres `TopBar=0` wird zu `2`. |
+| `Buttons` | `1` / `2` / `0` (Standard `1`) | Wo die Knöpfe für Sprache, Kodierung, Zeilenumbruch, Minimap und *Formatiert anzeigen* sitzen: `1` obere Leiste, `2` Statusleiste, `0` ausgeblendet; alles bleibt im Kontextmenü erreichbar. Ein älteres `TopBar=0` wird zu `2`. |
 | `LineSpacing` | `0`–`40` (Standard `4`) | Zusätzlicher Zeilenabstand in Pixeln |
 | `Cursor` | `1` / `0` (Standard `1`) | Textcursor: Die Pfeiltasten bewegen ihn (Umschalt markiert, Strg+Pfeile springen wortweise, Strg+Pos1 / Ende) statt zu scrollen |
 | `LinkClick` | `1` / `0` (Standard `0`) | `1`: Ein einfacher Klick auf einen Link öffnet ihn (ein Klick, der Text markiert, nicht); `0`: Strg+Klick |

@@ -17,7 +17,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 
 - **Show formatted** (Ctrl+B, switch at the top right): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
 - Word wrap (`W`), minimap, line numbers, indent guides, highlighted current line
-- Language picker at the top left, in case a file was recognized wrongly
+- Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
@@ -87,7 +87,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `LineNumbers` | `1` / `0` (default `1`) | Line numbers |
 | `Formatted` | `1` / `0` (default `0`) | Show formatted |
 | `Minimap` | `1` / `0` (default `0`) | Minimap |
-| `Buttons` | `1` / `2` / `0` (default `1`) | Where the language, word wrap, minimap and *Show formatted* buttons sit: `1` top bar, `2` status bar, `0` hidden; everything stays available in the context menu. An older `TopBar=0` becomes `2`. |
+| `Buttons` | `1` / `2` / `0` (default `1`) | Where the language, encoding, word wrap, minimap and *Show formatted* buttons sit: `1` top bar, `2` status bar, `0` hidden; everything stays available in the context menu. An older `TopBar=0` becomes `2`. |
 | `LineSpacing` | `0`–`40` (default `4`) | Extra space between lines in pixels |
 | `Cursor` | `1` / `0` (default `1`) | Text cursor: arrow keys move it (Shift selects, Ctrl+arrows jump by word, Ctrl+Home / End), instead of scrolling |
 | `LinkClick` | `1` / `0` (default `0`) | `1`: a plain click on a link opens it (a click that selects text does not); `0`: Ctrl+click |
