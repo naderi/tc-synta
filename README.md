@@ -16,12 +16,13 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 ## Features
 
 - **Show formatted** (Ctrl+B, switch at the top right): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
-- Word wrap, minimap, line numbers, indent guides, highlighted current line
+- Word wrap (`W`), minimap, line numbers, indent guides, highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
-- URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held)
+- URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
+- Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); files up to 512 MB
 - Status bar with language, encoding, line endings, number of lines and the cursor position
@@ -30,10 +31,10 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 ## Own languages and color schemes
 
 - `Languages\*.lang`: one file per language (keywords, comments, strings, …). `Languages\_template.lang` explains every key.
-- `Languages\global.lang`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. Plain text files (`.txt`, `.log`) are shown by `Languages	ext.lang`.
+- `Languages\global.lang`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. `LinkEnd=` sets the characters that end a URL, `LinkAfter=` (e.g. `href=" src="`) starts a link right behind such a prefix. Put your own values into `Languages\global.user.lang` (same format, only the keys you change): it overrides `global.lang` and an update never touches it. Plain text files (`.txt`, `.log`) are shown by `Languages\text.lang`.
 - `Themes\*.theme`: one file per color scheme; colors as `#RRGGBB` or `#RRGGBBAA`, optionally bold / italic.
 - Context menu → *Open "Languages" folder* / *Open "Themes" folder*. New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
-- To change a built-in language, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
+- To add to a built-in language, create `Languages\<name>.user.lang` next to `<name>.lang` (for example `html.user.lang`): only the keys you set replace the original values, while word lists, `Extensions=`, `FileNames=` and `Shebang=` are added to; an update never touches these files. To change a built-in language completely, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
 
 ## Detect string
 
@@ -89,6 +90,9 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `Buttons` | `1` / `2` / `0` (default `1`) | Where the language, word wrap, minimap and *Show formatted* buttons sit: `1` top bar, `2` status bar, `0` hidden; everything stays available in the context menu. An older `TopBar=0` becomes `2`. |
 | `LineSpacing` | `0`–`40` (default `4`) | Extra space between lines in pixels |
 | `Cursor` | `1` / `0` (default `1`) | Text cursor: arrow keys move it (Shift selects, Ctrl+arrows jump by word, Ctrl+Home / End), instead of scrolling |
+| `LinkClick` | `1` / `0` (default `0`) | `1`: a plain click on a link opens it (a click that selects text does not); `0`: Ctrl+click |
+| `LinkUnderline` | `1` / `0` (default `0`) | Underline links |
+| `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
 
 ## License
 

@@ -16,12 +16,13 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 ## Funktionen
 
 - **Formatiert anzeigen** (Strg+B, Schalter oben rechts): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
-- Zeilenumbruch, Minimap, Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
+- Zeilenumbruch (`W`), Minimap, Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
-- URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist)
+- URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G)
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
+- Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
 - Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); Dateien bis 512 MB
 - Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition
@@ -30,10 +31,10 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 ## Eigene Sprachen und Farbschemen
 
 - `Languages\*.lang`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Languages\_template.lang` erklärt jeden Schlüssel.
-- `Languages\global.lang`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. Reine Textdateien (`.txt`, `.log`) zeigt `Languages	ext.lang`.
+- `Languages\global.lang`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. `LinkEnd=` legt fest, welche Zeichen eine URL beenden, `LinkAfter=` (z. B. `href=" src="`) beginnt einen Link direkt hinter einem solchen Präfix. Eigene Werte gehören in `Languages\global.user.lang` (gleiches Format, nur die geänderten Schlüssel): Die Datei überschreibt `global.lang` und wird von einem Update nie angefasst. Reine Textdateien (`.txt`, `.log`) zeigt `Languages\text.lang`.
 - `Themes\*.theme`: eine Datei pro Farbschema; Farben als `#RRGGBB` oder `#RRGGBBAA`, optional fett / kursiv.
 - Kontextmenü → *Ordner „Languages“ öffnen* / *Ordner „Themes“ öffnen*. Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
-- Um eine eingebaute Sprache zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.
+- Um eine eingebaute Sprache zu ergänzen, legst du `Languages\<name>.user.lang` neben `<name>.lang` an (z. B. `html.user.lang`): Nur die gesetzten Schlüssel ersetzen die Originalwerte, Wortlisten, `Extensions=`, `FileNames=` und `Shebang=` werden ergänzt; ein Update fasst diese Dateien nie an. Um eine eingebaute Sprache komplett zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.
 
 ## Erkennungszeichenfolge
 
@@ -89,6 +90,9 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `Buttons` | `1` / `2` / `0` (Standard `1`) | Wo die Knöpfe für Sprache, Zeilenumbruch, Minimap und *Formatiert anzeigen* sitzen: `1` obere Leiste, `2` Statusleiste, `0` ausgeblendet; alles bleibt im Kontextmenü erreichbar. Ein älteres `TopBar=0` wird zu `2`. |
 | `LineSpacing` | `0`–`40` (Standard `4`) | Zusätzlicher Zeilenabstand in Pixeln |
 | `Cursor` | `1` / `0` (Standard `1`) | Textcursor: Die Pfeiltasten bewegen ihn (Umschalt markiert, Strg+Pfeile springen wortweise, Strg+Pos1 / Ende) statt zu scrollen |
+| `LinkClick` | `1` / `0` (Standard `0`) | `1`: Ein einfacher Klick auf einen Link öffnet ihn (ein Klick, der Text markiert, nicht); `0`: Strg+Klick |
+| `LinkUnderline` | `1` / `0` (Standard `0`) | Links unterstreichen |
+| `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
 
 ## Lizenz
 
