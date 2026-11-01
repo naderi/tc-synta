@@ -9,7 +9,7 @@ Press F3 on a source file and read it right there – with syntax highlighting, 
 
 ## Supported languages
 
-C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
+C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Total Commander menus (.mnu) and button bars (.bar), Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
 
 Files without an extension are recognized by their name (`Makefile`, `Dockerfile`) by a `#!` line or, for Registry exports, by the header; any other text file without an extension is shown as plain text (`ExtensionlessText=0` in `Synta.ini` turns this off).
 
@@ -20,7 +20,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
-- Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G)
+- Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G); F4 edits the file in Total Commander's editor
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
@@ -65,6 +65,7 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 | Ctrl+G | *Go to line…* |
 | Ctrl+A, Ctrl+C | Select all, copy |
 | F7 / F3 | Find (Total Commander's search) |
+| F4 | Edit the file in the editor configured in Total Commander |
 | Ctrl+mouse wheel | Zoom |
 | Arrow keys, Page Up / Down, Home, End | Scroll |
 | F1 | About |
