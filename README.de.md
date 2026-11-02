@@ -30,15 +30,16 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 
 ## Eigene Sprachen und Farbschemen
 
-- `Languages\*.lang`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Languages\_template.lang` erklärt jeden Schlüssel.
-- `Languages\global.lang`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. `LinkEnd=` legt fest, welche Zeichen eine URL beenden, `LinkAfter=` (z. B. `href=" src="`) beginnt einen Link direkt hinter einem solchen Präfix. Eigene Werte gehören in `Languages\global.user.lang` (gleiches Format, nur die geänderten Schlüssel): Die Datei überschreibt `global.lang` und wird von einem Update nie angefasst. Reine Textdateien (`.txt`, `.log`) zeigt `Languages\text.lang`.
+- `Syntaxes\*.syntax`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Syntaxes\_template.syntax` erklärt jeden Schlüssel.
+- `Syntaxes\global.syntax`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. `LinkEnd=` legt fest, welche Zeichen eine URL beenden, `LinkAfter=` (z. B. `href=" src="`) beginnt einen Link direkt hinter einem solchen Präfix. Eigene Werte gehören in `Syntaxes\global.user.syntax` (gleiches Format, nur die geänderten Schlüssel): Die Datei überschreibt `global.syntax` und wird von einem Update nie angefasst. Reine Textdateien (`.txt`, `.log`) zeigt `Syntaxes\text.syntax`.
 - `Themes\*.theme`: eine Datei pro Farbschema; Farben als `#RRGGBB` oder `#RRGGBBAA`, optional fett / kursiv.
-- Kontextmenü → *Ordner „Languages“ öffnen* / *Ordner „Themes“ öffnen*. Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
-- Um eine eingebaute Sprache zu ergänzen, legst du `Languages\<name>.user.lang` neben `<name>.lang` an (z. B. `html.user.lang`): Nur die gesetzten Schlüssel ersetzen die Originalwerte, Wortlisten, `Extensions=`, `FileNames=` und `Shebang=` werden ergänzt; ein Update fasst diese Dateien nie an. Um eine eingebaute Sprache komplett zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.
+- Kontextmenü → *Ordner „Syntaxes“ öffnen* / *Ordner „Themes“ öffnen*. Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
+- Um eine eingebaute Sprache zu ergänzen, legst du `Syntaxes\<name>.user.syntax` neben `<name>.syntax` an (z. B. `html.user.syntax`): Nur die gesetzten Schlüssel ersetzen die Originalwerte, Wortlisten, `Extensions=`, `FileNames=` und `Shebang=` werden ergänzt; ein Update fasst diese Dateien nie an. Um eine eingebaute Sprache komplett zu ändern, kopiere ihre Datei und setze in der Kopie `Priority=1` – ein Update ersetzt die eingebauten Dateien, nicht deine Kopie.
+- Update von einer Version vor 1.7: Synta verschiebt deine eigenen Dateien beim ersten Start selbst von `Languages\*.lang` nach `Syntaxes\*.syntax` (auch `*.user.lang`). Du musst nichts von Hand tun.
 
 ## Erkennungszeichenfolge
 
-Der Total Commander bietet Synta nur die Dateien an, auf die seine *Erkennungszeichenfolge* (Detect string) passt. Synta baut sie bei der Installation aus den Endungen aller `Languages\*.lang`-Dateien; im Synta öffnen sich also nur bekannte Quelltext-Typen (dazu Dateien ohne Endung, die Synta selbst prüft). `.ts` und `.mts` brauchen den Term `MULTIMEDIA`, weil der Total Commander sie als Video behandelt.
+Der Total Commander bietet Synta nur die Dateien an, auf die seine *Erkennungszeichenfolge* (Detect string) passt. Synta baut sie bei der Installation aus den Endungen aller `Syntaxes\*.syntax`-Dateien; im Synta öffnen sich also nur bekannte Quelltext-Typen (dazu Dateien ohne Endung, die Synta selbst prüft). `.ts` und `.mts` brauchen den Term `MULTIMEDIA`, weil der Total Commander sie als Video behandelt.
 
 Für die Erkennungszeichenfolge erlaubt der Total Commander 2 KB. Wird die Liste der Endungen länger (viele eigene Sprachen), weicht Synta auf „alles außer üblichen Binärtypen“ aus (`!(EXT="EXE"|EXT="DLL"|…)`); Dateien ohne Sprache lehnt Synta dann beim Laden ab.
 
@@ -91,6 +92,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `Buttons` | `1` / `2` / `0` (Standard `1`) | Wo die Knöpfe für Sprache, Kodierung, Zeilenumbruch, Minimap und *Formatiert anzeigen* sitzen: `1` obere Leiste, `2` Statusleiste, `0` ausgeblendet; alles bleibt im Kontextmenü erreichbar. Ein älteres `TopBar=0` wird zu `2`. |
 | `LineSpacing` | `0`–`40` (Standard `4`) | Zusätzlicher Zeilenabstand in Pixeln |
 | `Cursor` | `1` / `0` (Standard `1`) | Textcursor: Die Pfeiltasten bewegen ihn (Umschalt markiert, Strg+Pfeile springen wortweise, Strg+Pos1 / Ende) statt zu scrollen |
+| `EditorArgs` | leer (Standard) oder eine Parametervorlage | Bei eingeschaltetem Textcursor startet F4 den im Total Commander eingestellten Editor mit diesen Parametern statt mit seinen eigenen, damit der Editor die Datei an der Cursorposition öffnen kann. `%1` oder `%FILE%` ist die Datei, `%LINE%` und `%COL%` die Cursorposition (ab 1, die Spalte in Zeichen). Beispiele: `%1 /GoTo(%LINE%:%COL%)` (AkelPad), `"%FILE%:%LINE%:%COL%"` (Syntax). Leer: Der Editor bekommt nur die Datei |
 | `LinkClick` | `1` / `0` (Standard `0`) | `1`: Ein einfacher Klick auf einen Link öffnet ihn (ein Klick, der Text markiert, nicht); `0`: Strg+Klick |
 | `LinkUnderline` | `1` / `0` (Standard `0`) | Links unterstreichen |
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |

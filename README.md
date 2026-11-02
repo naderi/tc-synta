@@ -30,15 +30,16 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 
 ## Own languages and color schemes
 
-- `Languages\*.lang`: one file per language (keywords, comments, strings, …). `Languages\_template.lang` explains every key.
-- `Languages\global.lang`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. `LinkEnd=` sets the characters that end a URL, `LinkAfter=` (e.g. `href=" src="`) starts a link right behind such a prefix. Put your own values into `Languages\global.user.lang` (same format, only the keys you change): it overrides `global.lang` and an update never touches it. Plain text files (`.txt`, `.log`) are shown by `Languages\text.lang`.
+- `Syntaxes\*.syntax`: one file per language (keywords, comments, strings, …). `Syntaxes\_template.syntax` explains every key.
+- `Syntaxes\global.syntax`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. `LinkEnd=` sets the characters that end a URL, `LinkAfter=` (e.g. `href=" src="`) starts a link right behind such a prefix. Put your own values into `Syntaxes\global.user.syntax` (same format, only the keys you change): it overrides `global.syntax` and an update never touches it. Plain text files (`.txt`, `.log`) are shown by `Syntaxes\text.syntax`.
 - `Themes\*.theme`: one file per color scheme; colors as `#RRGGBB` or `#RRGGBBAA`, optionally bold / italic.
-- Context menu → *Open "Languages" folder* / *Open "Themes" folder*. New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
-- To add to a built-in language, create `Languages\<name>.user.lang` next to `<name>.lang` (for example `html.user.lang`): only the keys you set replace the original values, while word lists, `Extensions=`, `FileNames=` and `Shebang=` are added to; an update never touches these files. To change a built-in language completely, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
+- Context menu → *Open "Syntaxes" folder* / *Open "Themes" folder*. New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
+- To add to a built-in language, create `Syntaxes\<name>.user.syntax` next to `<name>.syntax` (for example `html.user.syntax`): only the keys you set replace the original values, while word lists, `Extensions=`, `FileNames=` and `Shebang=` are added to; an update never touches these files. To change a built-in language completely, copy its file and set `Priority=1` in the copy – an update replaces the built-in files, not your copy.
+- Updating from a version before 1.7: Synta moves your own files from `Languages\*.lang` to `Syntaxes\*.syntax` by itself (also `*.user.lang`), the first time it runs. Nothing to do by hand.
 
 ## Detect string
 
-Total Commander only offers Synta the files its *detect string* matches. Synta builds it from the extensions of all `Languages\*.lang` files when the plugin is installed, so only known source file types open in Synta (plus files without an extension, which Synta checks itself). `.ts` and `.mts` need the `MULTIMEDIA` term, because Total Commander treats them as video.
+Total Commander only offers Synta the files its *detect string* matches. Synta builds it from the extensions of all `Syntaxes\*.syntax` files when the plugin is installed, so only known source file types open in Synta (plus files without an extension, which Synta checks itself). `.ts` and `.mts` need the `MULTIMEDIA` term, because Total Commander treats them as video.
 
 Total Commander allows 2 KB for the detect string. If the list of extensions gets longer than that (many own languages), Synta falls back to "everything except common binary types" (`!(EXT="EXE"|EXT="DLL"|…)`); files without a language are then declined when they are loaded.
 
@@ -91,6 +92,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `Buttons` | `1` / `2` / `0` (default `1`) | Where the language, encoding, word wrap, minimap and *Show formatted* buttons sit: `1` top bar, `2` status bar, `0` hidden; everything stays available in the context menu. An older `TopBar=0` becomes `2`. |
 | `LineSpacing` | `0`–`40` (default `4`) | Extra space between lines in pixels |
 | `Cursor` | `1` / `0` (default `1`) | Text cursor: arrow keys move it (Shift selects, Ctrl+arrows jump by word, Ctrl+Home / End), instead of scrolling |
+| `EditorArgs` | empty (default) or a parameter template | With the text cursor on, F4 starts the editor set in Total Commander with these parameters instead of its own, so the editor can open the file at the cursor. `%1` or `%FILE%` is the file, `%LINE%` and `%COL%` the cursor position (counted from 1, the column in characters). Examples: `%1 /GoTo(%LINE%:%COL%)` (AkelPad), `"%FILE%:%LINE%:%COL%"` (Syntax). Empty: the editor gets just the file |
 | `LinkClick` | `1` / `0` (default `0`) | `1`: a plain click on a link opens it (a click that selects text does not); `0`: Ctrl+click |
 | `LinkUnderline` | `1` / `0` (default `0`) | Underline links |
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
