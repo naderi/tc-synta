@@ -96,6 +96,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `LinkClick` | `1` / `0` (default `0`) | `1`: a plain click on a link opens it (a click that selects text does not); `0`: Ctrl+click |
 | `LinkUnderline` | `1` / `0` (default `0`) | Underline links |
 | `LineBackground` | `1` / `0` (default `0`) | Log files: tint the whole row of a line in the color of its level (ERROR, WARN, …); also in the context menu under *View elements* → *Line background (logs)* |
+| `AlternateRows` | `1` / `0` (default `0`) | Every second line gets a faint background (like *Background 2* in Total Commander); also in the context menu under *View elements* → *Alternating row background* |
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
 | `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |
 | `DefaultCodepage` | code page number, e.g. `437`, `1251` (default `0` = the Windows code page) | Code page for files that are not UTF-8 and where detection finds nothing better |

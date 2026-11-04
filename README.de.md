@@ -96,6 +96,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `LinkClick` | `1` / `0` (Standard `0`) | `1`: Ein einfacher Klick auf einen Link öffnet ihn (ein Klick, der Text markiert, nicht); `0`: Strg+Klick |
 | `LinkUnderline` | `1` / `0` (Standard `0`) | Links unterstreichen |
 | `LineBackground` | `1` / `0` (Standard `0`) | Logdateien: die ganze Zeile in der Farbe ihres Levels (ERROR, WARN, …) hinterlegen; auch im Kontextmenü unter *Anzeigeelemente* → *Zeilenhintergrund (Logs)* |
+| `AlternateRows` | `1` / `0` (Standard `0`) | Jede zweite Zeile bekommt einen leichten Hintergrund (wie *Hintergrund 2* im Total Commander); auch im Kontextmenü unter *Anzeigeelemente* → *Jede zweite Zeile hinterlegt* |
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
 | `DetectEncoding` | `1` / `0` (Standard `1`) | Codepage von Dateien erraten, die nicht UTF-8 sind; `0` nimmt immer `DefaultCodepage` |
 | `DefaultCodepage` | Codepage-Nummer, z. B. `437`, `1251` (Standard `0` = Windows-Codepage) | Codepage für Dateien, die nicht UTF-8 sind und bei denen die Erkennung nichts Besseres findet |
