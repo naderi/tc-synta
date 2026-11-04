@@ -3,7 +3,7 @@
 **English** | [Deutsch](README.de.md)
 
 A source code viewer with syntax highlighting (Lister plugin) for [Total Commander](https://www.ghisler.com), 32 and 64 bit.
-Press F3 on a source file and read it right there – with syntax highlighting, line numbers and an optional minimap. A switch shows minified or messy code formatted – the file itself is never changed. Languages and color schemes are plain text files that anyone can extend. Native, no runtime, nothing to install besides the plugin.
+Press F3 on a source file and read it right there – with syntax highlighting, line numbers and an optional minimap. A button shows minified or messy code formatted – the file itself is never changed. Languages and color schemes are plain text files that anyone can extend. Native, no runtime, nothing to install besides the plugin.
 
 ![Synta showing an HTML file formatted, with line numbers and the minimap](docs/screenshot.png)
 
@@ -15,8 +15,8 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 
 ## Features
 
-- **Show formatted** (Ctrl+B, switch at the top right): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
-- Word wrap (`W`), minimap, line numbers, indent guides, highlighted current line
+- **Show formatted** (Ctrl+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
+- Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides, highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
@@ -25,7 +25,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); DOS text (box drawing characters, umlauts) is recognized as CP437/CP850/CP852/CP866, and NFO, DIZ, ASC and ANS files open as CP437 by default; files up to 512 MB
-- Status bar with language, encoding, line endings, number of lines and the cursor position
+- Status bar with language, encoding, line endings, number of lines (`Lines: 250 (12)` – 12 of 250 lines selected) and the cursor position
 - English and German user interface (follows the Windows language)
 
 ## Own languages and color schemes

@@ -3,7 +3,7 @@
 [English](README.md) | **Deutsch**
 
 Ein Quelltext-Betrachter mit Syntaxhervorhebung (Lister-Plugin) für den [Total Commander](https://www.ghisler.com), 32 und 64 Bit.
-F3 auf einer Quelltext-Datei, und sie lässt sich direkt lesen – mit Syntaxhervorhebung, Zeilennummern und auf Wunsch einer Minimap. Ein Schalter zeigt minimierten oder unordentlichen Code formatiert an – die Datei selbst wird nie verändert. Sprachen und Farbschemen sind Textdateien, die jeder erweitern kann. Nativ, ohne Laufzeitumgebung, außer dem Plugin muss nichts installiert werden.
+F3 auf einer Quelltext-Datei, und sie lässt sich direkt lesen – mit Syntaxhervorhebung, Zeilennummern und auf Wunsch einer Minimap. Eine Schaltfläche zeigt minimierten oder unordentlichen Code formatiert an – die Datei selbst wird nie verändert. Sprachen und Farbschemen sind Textdateien, die jeder erweitern kann. Nativ, ohne Laufzeitumgebung, außer dem Plugin muss nichts installiert werden.
 
 ![Synta zeigt eine HTML-Datei formatiert, mit Zeilennummern und Minimap](docs/screenshot.png)
 
@@ -15,8 +15,8 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 
 ## Funktionen
 
-- **Formatiert anzeigen** (Strg+B, Schalter oben rechts): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
-- Zeilenumbruch (`W`), Minimap, Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
+- **Formatiert anzeigen** (Strg+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
+- Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
@@ -25,7 +25,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 - Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet; bei markiertem Text druckt "Markierung" nur diesen Text
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
 - Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); DOS-Text (Rahmenzeichen, Umlaute) wird als CP437/CP850/CP852/CP866 erkannt, NFO-, DIZ-, ASC- und ANS-Dateien öffnen standardmäßig als CP437; Dateien bis 512 MB
-- Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl und Cursorposition
+- Statusleiste mit Sprache, Kodierung, Zeilenenden, Zeilenzahl (`Zeilen: 250 (12)` – 12 von 250 Zeilen markiert) und Cursorposition
 - Deutsche und englische Oberfläche (folgt der Windows-Sprache)
 
 ## Eigene Sprachen und Farbschemen
