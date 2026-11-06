@@ -9,13 +9,14 @@ F3 auf einer Quelltext-Datei, und sie lässt sich direkt lesen – mit Syntaxher
 
 ## Unterstützte Sprachen
 
-C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (mit eingebettetem CSS und JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry-Dateien, Menüs (.mnu) und Knopfleisten (.bar) des Total Commanders, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (jede Spalte in einer eigenen Farbe) und Syntas eigene Definitionsdateien.
+C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (mit eingebettetem CSS und JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry-Dateien, Menüs (.mnu) und Knopfleisten (.bar) des Total Commanders, Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, LaTeX, EDIFACT, CSV/TSV (jede Spalte in einer eigenen Farbe) und Syntas eigene Definitionsdateien.
 
 Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#!`-Zeile oder (bei Registry-Exporten) an der Kopfzeile erkannt; jede andere Textdatei ohne Endung wird als reiner Text angezeigt (`ExtensionlessText=0` in `Synta.ini` schaltet das ab).
 
 ## Funktionen
 
 - **Formatiert anzeigen** (Strg+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
+- **Code falten** für jede Sprache: Pfeile am Rand (Klick), `Strg+Umschalt+[` / `]` falten und öffnen den Block am Cursor, `Strg+Alt+[` / `]` alle Blöcke (Ziffernblock: `Strg+-` / `Strg++`, mit Umschalt für alle); auch im Kontextmenü unter *Code falten*. Die Blöcke ergeben sich aus Klammern und Einrückung (Markdown: Überschriften, INI: Abschnitte). Optional steht die Zahl der ausgeblendeten Zeilen hinter den Punkten: `... (121 Zeilen)`
 - Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
@@ -30,7 +31,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 
 ## Eigene Sprachen und Farbschemen
 
-- `Syntaxes\*.syntax`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Syntaxes\_template.syntax` erklärt jeden Schlüssel.
+- `Syntaxes\*.syntax`: eine Datei pro Sprache (Schlüsselwörter, Kommentare, Zeichenketten, …). `Syntaxes\_template.syntax` erklärt jeden Schlüssel. `Folding=` legt fest, wie eine Sprache faltet: `none`, `braces`, `indent`, `headings` oder `sections` (Standard: nach Sprachtyp).
 - `Syntaxes\global.syntax`: Einstellungen für alle Sprachen. `Links=` listet die URL-Präfixe, die in Text, Kommentaren und Strings als Links eingefärbt werden; eine Sprache kann den Schlüssel überschreiben oder leeren. `LinkEnd=` legt fest, welche Zeichen eine URL beenden, `LinkAfter=` (z. B. `href=" src="`) beginnt einen Link direkt hinter einem solchen Präfix. Eigene Werte gehören in `Syntaxes\global.user.syntax` (gleiches Format, nur die geänderten Schlüssel): Die Datei überschreibt `global.syntax` und wird von einem Update nie angefasst. Reine Textdateien (`.txt`, …) zeigt `Syntaxes\text.syntax`, Logdateien `Syntaxes\log.syntax` (eine Zeile wird nach ihrem Level eingefärbt).
 - `Themes\*.json`: eine Datei pro Farbschema, im Farbthema-Format von VS Code – dieselben Dateien nutzt der Editor Syntax, Themes aus VS Code funktionieren also unverändert. `colors` enthält die Editorfarben, `tokenColors` die Farben der Syntaxstile nach TextMate-Scope (`#RRGGBB` oder `#RRGGBBAA`, `fontStyle` bold / italic); ein Scope gilt auch für seine Unter-Scopes (`keyword` färbt auch `keyword.control`). Stile, für die VS Code keinen üblichen Scope hat, nutzen `keyword.control.flow`, `entity.other.inherited-class`, `keyword.other.unit`, `constant.character.escape`, `constant.character.entity`, `meta.annotation`, `entity.name.section`, `punctuation` und `markup.changed`; lässt ein Theme sie weg, bekommen sie die Farbe des nächst allgemeineren Scopes. Ältere `Themes\*.theme`-Dateien werden weiterhin gelesen.
 - Kontextmenü → *Ordner „Syntaxes“ öffnen* / *Ordner „Themes“ öffnen* (öffnet in einem neuen Tab des Total Commanders). Neue oder geänderte Dateien gelten für die nächste Datei, die der Lister öffnet; Fehler stehen in der Statusleiste und unter *Fehler in Definitionsdateien…*.
@@ -42,6 +43,8 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 Der Total Commander bietet Synta nur die Dateien an, auf die seine *Erkennungszeichenfolge* (Detect string) passt. Synta baut sie bei der Installation aus den Endungen aller `Syntaxes\*.syntax`-Dateien; im Synta öffnen sich also nur bekannte Quelltext-Typen (dazu Dateien ohne Endung, die Synta selbst prüft). `.ts` und `.mts` brauchen den Term `MULTIMEDIA`, weil der Total Commander sie als Video behandelt.
 
 Für die Erkennungszeichenfolge erlaubt der Total Commander 2 KB. Wird die Liste der Endungen länger (viele eigene Sprachen), weicht Synta auf „alles außer üblichen Binärtypen“ aus (`!(EXT="EXE"|EXT="DLL"|…)`); Dateien ohne Sprache lehnt Synta dann beim Laden ab.
+
+Einzelne Dateitypen lassen sich auch ohne Änderung dieser Zeichenfolge von Synta fernhalten: in `Synta.ini` unter `ExcludeExtensions=` eintragen (zum Beispiel `ts mts`). Synta lehnt diese Dateien dann ab, und der Total Commander nimmt den nächsten Betrachter.
 
 Um Synta auf die gewünschten Typen zu beschränken, ändere die Zeichenfolge unter *Konfigurieren → Optionen → Plugins → Lister-Plugins → Synta → Konfigurieren* oder `detect=` im Abschnitt `[ListerPlugins]` der `wincmd.ini` (nur bei geschlossenem Total Commander):
 
@@ -64,6 +67,8 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 |---|---|
 | Strg+B | *Formatiert anzeigen* an / aus |
 | Strg+G | *Gehe zu Zeile…* |
+| Strg+Umschalt+[ / ] | Block am Cursor falten / öffnen (Ziffernblock: Strg+- / Strg++) |
+| Strg+Alt+[ / ] | Alle Blöcke falten / öffnen (Ziffernblock: Strg+Umschalt+- / Strg+Umschalt++) |
 | Strg+A, Strg+C | Alles markieren, kopieren |
 | F7 / F3 | Suchen (Suche des Total Commanders) |
 | F4 | Datei im Editor des Total Commanders bearbeiten |
@@ -97,6 +102,8 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `LinkUnderline` | `1` / `0` (Standard `0`) | Links unterstreichen |
 | `LineBackground` | `1` / `0` (Standard `0`) | Logdateien: die ganze Zeile in der Farbe ihres Levels (ERROR, WARN, …) hinterlegen; auch im Kontextmenü unter *Anzeigeelemente* → *Zeilenhintergrund (Logs)* |
 | `AlternateRows` | `1` / `0` (Standard `0`) | Jede zweite Zeile bekommt einen leichten Hintergrund (wie *Hintergrund 2* im Total Commander); auch im Kontextmenü unter *Anzeigeelemente* → *Jede zweite Zeile hinterlegt* |
+| `FoldCount` | `1` / `0` (Standard `0`) | Zahl der ausgeblendeten Zeilen hinter den Punkten eines gefalteten Blocks anzeigen, z. B. `... (121 Zeilen)`; auch im Kontextmenü unter *Code falten* |
+| `ExcludeExtensions` | leer (Standard) oder Endungen, z. B. `ts mts` | Dateitypen, die Synta ablehnt, sodass der Total Commander den nächsten Betrachter nimmt; getrennt durch Leerzeichen, Kommas oder Semikolons |
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
 | `DetectEncoding` | `1` / `0` (Standard `1`) | Codepage von Dateien erraten, die nicht UTF-8 sind; `0` nimmt immer `DefaultCodepage` |
 | `DefaultCodepage` | Codepage-Nummer, z. B. `437`, `1251` (Standard `0` = Windows-Codepage) | Codepage für Dateien, die nicht UTF-8 sind und bei denen die Erkennung nichts Besseres findet |

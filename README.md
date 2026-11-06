@@ -9,13 +9,14 @@ Press F3 on a source file and read it right there – with syntax highlighting, 
 
 ## Supported languages
 
-C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Total Commander menus (.mnu) and button bars (.bar), Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
+C, C++, C#, Java, JavaScript, TypeScript, Python, PowerShell, Batch, Shell, SQL, Go, Rust, PHP, HTML (with embedded CSS and JavaScript), Astro, XML, CSS, SCSS/Less, JSON, YAML, TOML, INI, Registry files, Total Commander menus (.mnu) and button bars (.bar), Markdown, Diff, Lua, Pascal/Delphi, Visual Basic, Ruby, Kotlin, Swift, AutoHotkey, AutoIt, Makefile, Dockerfile, CMake, LaTeX, EDIFACT, CSV/TSV (every column in its own color) and Synta's own definition files.
 
 Files without an extension are recognized by their name (`Makefile`, `Dockerfile`) by a `#!` line or, for Registry exports, by the header; any other text file without an extension is shown as plain text (`ExtensionlessText=0` in `Synta.ini` turns this off).
 
 ## Features
 
 - **Show formatted** (Ctrl+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
+- **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` fold and unfold the block around the cursor, `Ctrl+Alt+[` / `]` all blocks (number pad: `Ctrl+-` / `Ctrl++`, with Shift for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
 - Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides, highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
@@ -30,7 +31,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 
 ## Own languages and color schemes
 
-- `Syntaxes\*.syntax`: one file per language (keywords, comments, strings, …). `Syntaxes\_template.syntax` explains every key.
+- `Syntaxes\*.syntax`: one file per language (keywords, comments, strings, …). `Syntaxes\_template.syntax` explains every key. `Folding=` sets how a language folds: `none`, `braces`, `indent`, `headings` or `sections` (default: from the language type).
 - `Syntaxes\global.syntax`: settings for all languages. `Links=` lists the URL prefixes that are colored as links in text, comments and strings; a language can override or empty the key. `LinkEnd=` sets the characters that end a URL, `LinkAfter=` (e.g. `href=" src="`) starts a link right behind such a prefix. Put your own values into `Syntaxes\global.user.syntax` (same format, only the keys you change): it overrides `global.syntax` and an update never touches it. Plain text files (`.txt`, …) are shown by `Syntaxes\text.syntax`, log files by `Syntaxes\log.syntax` (a line is colored by its level).
 - `Themes\*.json`: one file per color scheme, in the VS Code color theme format – the same files the editor Syntax uses, so themes from VS Code work as they are. `colors` holds the editor colors, `tokenColors` the colors of the syntax styles by TextMate scope (`#RRGGBB` or `#RRGGBBAA`, `fontStyle` bold / italic); a scope also covers its sub-scopes (`keyword` colors `keyword.control` too). Styles that VS Code has no common scope for use `keyword.control.flow`, `entity.other.inherited-class`, `keyword.other.unit`, `constant.character.escape`, `constant.character.entity`, `meta.annotation`, `entity.name.section`, `punctuation` and `markup.changed`; a theme that leaves them out gets the color of the next more general scope. Older `Themes\*.theme` files are still read.
 - Context menu → *Open "Syntaxes" folder* / *Open "Themes" folder* (opens in a new tab of Total Commander). New or changed files are used for the next file the Lister opens; errors are shown in the status bar and under *Errors in definition files…*.
@@ -42,6 +43,8 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 Total Commander only offers Synta the files its *detect string* matches. Synta builds it from the extensions of all `Syntaxes\*.syntax` files when the plugin is installed, so only known source file types open in Synta (plus files without an extension, which Synta checks itself). `.ts` and `.mts` need the `MULTIMEDIA` term, because Total Commander treats them as video.
 
 Total Commander allows 2 KB for the detect string. If the list of extensions gets longer than that (many own languages), Synta falls back to "everything except common binary types" (`!(EXT="EXE"|EXT="DLL"|…)`); files without a language are then declined when they are loaded.
+
+To keep single file types away from Synta without touching this string, list them in `ExcludeExtensions=` in `Synta.ini` (for example `ts mts`): Synta then declines these files and Total Commander uses its next viewer.
 
 To limit Synta to the types you want, edit the string in *Configuration → Options → Plugins → Lister plugins → Synta → Configure*, or `detect=` in the `[ListerPlugins]` section of `wincmd.ini` (only with Total Commander closed):
 
@@ -64,6 +67,8 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 |---|---|
 | Ctrl+B | *Show formatted* on / off |
 | Ctrl+G | *Go to line…* |
+| Ctrl+Shift+[ / ] | Fold / unfold the block at the cursor (number pad: Ctrl+- / Ctrl++) |
+| Ctrl+Alt+[ / ] | Fold / unfold all blocks (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
 | Ctrl+A, Ctrl+C | Select all, copy |
 | F7 / F3 | Find (Total Commander's search) |
 | F4 | Edit the file in the editor configured in Total Commander |
@@ -97,6 +102,8 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `LinkUnderline` | `1` / `0` (default `0`) | Underline links |
 | `LineBackground` | `1` / `0` (default `0`) | Log files: tint the whole row of a line in the color of its level (ERROR, WARN, …); also in the context menu under *View elements* → *Line background (logs)* |
 | `AlternateRows` | `1` / `0` (default `0`) | Every second line gets a faint background (like *Background 2* in Total Commander); also in the context menu under *View elements* → *Alternating row background* |
+| `FoldCount` | `1` / `0` (default `0`) | Show the number of hidden lines behind the dots of a folded block, e.g. `... (121 Lines)`; also in the context menu under *Code folding* |
+| `ExcludeExtensions` | empty (default) or extensions, e.g. `ts mts` | File types that Synta declines, so Total Commander uses its next viewer; separated by spaces, commas or semicolons |
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
 | `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |
 | `DefaultCodepage` | code page number, e.g. `437`, `1251` (default `0` = the Windows code page) | Code page for files that are not UTF-8 and where detection finds nothing better |
