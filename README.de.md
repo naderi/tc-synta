@@ -15,13 +15,13 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 
 ## Funktionen
 
-- **Formatiert anzeigen** (Strg+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
-- **Code falten** für jede Sprache: Pfeile am Rand (Klick), `Strg+Umschalt+[` / `]` falten und öffnen den Block am Cursor, `Strg+Alt+[` / `]` alle Blöcke (Ziffernblock: `Strg+-` / `Strg++`, mit Umschalt für alle); auch im Kontextmenü unter *Code falten*. Die Blöcke ergeben sich aus Klammern und Einrückung (Markdown: Überschriften, INI: Abschnitte). Optional steht die Zahl der ausgeblendeten Zeilen hinter den Punkten: `... (121 Zeilen)`
+- **Formatiert anzeigen** (Strg+Umschalt+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
+- **Code falten** für jede Sprache: Pfeile am Rand (Klick), `Strg+Umschalt+ß` / `´` (US-Tastatur: `[` / `]`; auch `=` / `\`) falten und öffnen den Block am Cursor, `Strg+Alt+` dieselben Tasten alle Blöcke, `Strg+Umschalt+/` und `Strg+Alt+/` wechseln (Ziffernblock: `Strg+-` / `Strg++`, mit Umschalt für alle); auch im Kontextmenü unter *Code falten*. Die Blöcke ergeben sich aus Klammern und Einrückung (Markdown: Überschriften, INI: Abschnitte). Optional steht die Zahl der ausgeblendeten Zeilen hinter den Punkten: `... (121 Zeilen)`
 - Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien, hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
-- Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G); F4 bearbeitet die Datei im Editor des Total Commanders
+- Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G), Sprung zur passenden Klammer (Strg+B; das Klammerpaar am Cursor wird hervorgehoben); F4 bearbeitet die Datei im Editor des Total Commanders
 - Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
 - Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet; bei markiertem Text druckt "Markierung" nur diesen Text
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
@@ -65,10 +65,11 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 
 | Taste | Aktion |
 |---|---|
-| Strg+B | *Formatiert anzeigen* an / aus |
+| Strg+B | *Zur passenden Klammer springen* |
+| Strg+Umschalt+B | *Formatiert anzeigen* an / aus |
 | Strg+G | *Gehe zu Zeile…* |
-| Strg+Umschalt+[ / ] | Block am Cursor falten / öffnen (Ziffernblock: Strg+- / Strg++) |
-| Strg+Alt+[ / ] | Alle Blöcke falten / öffnen (Ziffernblock: Strg+Umschalt+- / Strg+Umschalt++) |
+| Strg+Umschalt+ß / ´ | Block am Cursor falten / öffnen (Ziffernblock: Strg+- / Strg++) |
+| Strg+Alt+ß / ´ | Alle Blöcke falten / öffnen (Ziffernblock: Strg+Umschalt+- / Strg+Umschalt++) |
 | Strg+A, Strg+C | Alles markieren, kopieren |
 | F7 / F3 | Suchen (Suche des Total Commanders) |
 | F4 | Datei im Editor des Total Commanders bearbeiten |

@@ -15,13 +15,13 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 
 ## Features
 
-- **Show formatted** (Ctrl+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
-- **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` fold and unfold the block around the cursor, `Ctrl+Alt+[` / `]` all blocks (number pad: `Ctrl+-` / `Ctrl++`, with Shift for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
+- **Show formatted** (Ctrl+Shift+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
+- **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` (German keyboard: `ß` / `´`; also `=` / `\`) fold and unfold the block around the cursor, `Ctrl+Alt+` the same keys all blocks, `Ctrl+Shift+/` and `Ctrl+Alt+/` toggle (number pad: `Ctrl+-` / `Ctrl++`, with Shift for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
 - Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides, highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
-- Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G); F4 edits the file in Total Commander's editor
+- Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G), jump to the matching bracket (Ctrl+B; the bracket pair next to the cursor is highlighted); F4 edits the file in Total Commander's editor
 - Zoom with Ctrl+mouse wheel; selectable font and tab width
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
@@ -65,10 +65,11 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 
 | Key | Action |
 |---|---|
-| Ctrl+B | *Show formatted* on / off |
+| Ctrl+B | *Go to matching bracket* |
+| Ctrl+Shift+B | *Show formatted* on / off |
 | Ctrl+G | *Go to line…* |
-| Ctrl+Shift+[ / ] | Fold / unfold the block at the cursor (number pad: Ctrl+- / Ctrl++) |
-| Ctrl+Alt+[ / ] | Fold / unfold all blocks (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
+| Ctrl+Shift+[ / ] (German: ß / ´) | Fold / unfold the block at the cursor (number pad: Ctrl+- / Ctrl++) |
+| Ctrl+Alt+[ / ] (German: ß / ´) | Fold / unfold all blocks (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
 | Ctrl+A, Ctrl+C | Select all, copy |
 | F7 / F3 | Find (Total Commander's search) |
 | F4 | Edit the file in the editor configured in Total Commander |
