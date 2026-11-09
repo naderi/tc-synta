@@ -18,7 +18,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - **Show formatted** (Ctrl+Shift+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
 - **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` (German keyboard: `ß` / `´`; also `=` / `\`) fold and unfold the block around the cursor, `Ctrl+Alt+` the same keys all blocks, `Ctrl+Shift+/` and `Ctrl+Alt+/` toggle (number pad: `Ctrl+Shift+-` / `Ctrl+Shift++`, with Alt for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
 - **NFO, DIZ and ANS files** open with tight lines, so ASCII art stays connected (*Line spacing* → *Always tight for NFO/DIZ*)
-- **Occurrence highlighting**: select a word and its other occurrences in the visible lines are tinted (*View elements* → *Highlight occurrences*)
+- **Occurrence highlighting**: select a word and its other occurrences in the visible lines are tinted – whole words for a whole word, parts of words when only part of a word is selected (*View elements* → *Highlight occurrences*)
 - **Search field** in the top bar or status bar (off by default; *View elements* → *Search field in the toolbar*): Enter = next, Shift+Enter = previous, the `.*` button searches with a regular expression; `Ctrl+Shift+F` jumps to the field
 - Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides and a column line at the cursor (both switchable under *View elements*), highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
@@ -109,7 +109,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `FoldCount` | `1` / `0` (default `0`) | Show the number of hidden lines behind the dots of a folded block, e.g. `... (121 Lines)`; also in the context menu under *Code folding* |
 | `IndentGuides` | `1` / `0` (default `1`) | Vertical lines at every tab stop of the indentation; also in the context menu under *View elements* → *Indent guides* |
 | `ColumnGuide` | `1` / `0` (default `0`) | A vertical line at the column of the cursor; also in the context menu under *View elements* → *Cursor column line* |
-| `Occurrences` | `1` / `0` (default `1`) | Tint the other occurrences of the selected word (whole words, visible lines only); also in the context menu under *View elements* → *Highlight occurrences* |
+| `Occurrences` | `1` / `0` (default `1`) | Tint the other occurrences of the selected word (whole words for a whole word, parts of words for a partial selection; visible lines only); also in the context menu under *View elements* → *Highlight occurrences* |
 | `Search` | `1` / `0` (default `0`) | Search field in the toolbar (top bar or status bar, see `Buttons`); also in the context menu under *View elements* → *Search field in the toolbar* |
 | `SearchRegex` | `1` / `0` (default `0`) | The search field searches with a regular expression (ECMAScript syntax, line by line); toggled by the `.*` button |
 | `SearchKey` | `Ctrl+Shift+F` (default), `F` for Ctrl+F, empty for none | Shortcut that jumps to the search field; Ctrl+F stays with Total Commander by default |
