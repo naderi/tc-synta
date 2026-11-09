@@ -18,7 +18,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - **Show formatted** (Ctrl+Shift+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
 - **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` (German keyboard: `ß` / `´`; also `=` / `\`) fold and unfold the block around the cursor, `Ctrl+Alt+` the same keys all blocks, `Ctrl+Shift+/` and `Ctrl+Alt+/` toggle (number pad: `Ctrl+-` / `Ctrl++`, with Shift for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
 - **NFO, DIZ and ANS files** open with tight lines, so ASCII art stays connected (*Line spacing* → *Always tight for NFO/DIZ*)
-- Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides (switchable under *View elements*), highlighted current line
+- Word wrap (`W`) and minimap as icon buttons – dimmed while off, with tooltips; line numbers, indent guides and a column line at the cursor (both switchable under *View elements*), highlighted current line
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
@@ -106,6 +106,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `AlternateRows` | `1` / `0` (default `0`) | Every second line gets a faint background (like *Background 2* in Total Commander); also in the context menu under *View elements* → *Alternating row background* |
 | `FoldCount` | `1` / `0` (default `0`) | Show the number of hidden lines behind the dots of a folded block, e.g. `... (121 Lines)`; also in the context menu under *Code folding* |
 | `IndentGuides` | `1` / `0` (default `1`) | Vertical lines at every tab stop of the indentation; also in the context menu under *View elements* → *Indent guides* |
+| `ColumnGuide` | `1` / `0` (default `0`) | A vertical line at the column of the cursor; also in the context menu under *View elements* → *Cursor column line* |
 | `AutoTight` | `1` / `0` (default `1`) | Files with an extension from `TightExtensions` get no extra line spacing; also in the context menu under *Line spacing* → *Always tight for NFO/DIZ* |
 | `TightExtensions` | extensions (default `nfo diz ans`) | File types shown with tight lines when `AutoTight=1`; separated by spaces, commas or semicolons |
 | `ExcludeExtensions` | empty (default) or extensions, e.g. `ts mts` | File types that Synta declines, so Total Commander uses its next viewer; separated by spaces, commas or semicolons |

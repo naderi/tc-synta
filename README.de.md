@@ -18,7 +18,7 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 - **Formatiert anzeigen** (Strg+Umschalt+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
 - **Code falten** für jede Sprache: Pfeile am Rand (Klick), `Strg+Umschalt+ß` / `´` (US-Tastatur: `[` / `]`; auch `=` / `\`) falten und öffnen den Block am Cursor, `Strg+Alt+` dieselben Tasten alle Blöcke, `Strg+Umschalt+/` und `Strg+Alt+/` wechseln (Ziffernblock: `Strg+-` / `Strg++`, mit Umschalt für alle); auch im Kontextmenü unter *Code falten*. Die Blöcke ergeben sich aus Klammern und Einrückung (Markdown: Überschriften, INI: Abschnitte). Optional steht die Zahl der ausgeblendeten Zeilen hinter den Punkten: `... (121 Zeilen)`
 - **NFO-, DIZ- und ANS-Dateien** öffnen mit engen Zeilen, damit ASCII-Art zusammenhängt (*Zeilenabstand* → *Bei NFO/DIZ immer eng*)
-- Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien (unter *Anzeigeelemente* abschaltbar), hervorgehobene aktuelle Zeile
+- Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien und eine Spaltenlinie am Cursor (beide unter *Anzeigeelemente* schaltbar), hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
@@ -106,6 +106,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `AlternateRows` | `1` / `0` (Standard `0`) | Jede zweite Zeile bekommt einen leichten Hintergrund (wie *Hintergrund 2* im Total Commander); auch im Kontextmenü unter *Anzeigeelemente* → *Jede zweite Zeile hinterlegt* |
 | `FoldCount` | `1` / `0` (Standard `0`) | Zahl der ausgeblendeten Zeilen hinter den Punkten eines gefalteten Blocks anzeigen, z. B. `... (121 Zeilen)`; auch im Kontextmenü unter *Code falten* |
 | `IndentGuides` | `1` / `0` (Standard `1`) | Senkrechte Linien an jedem Tabstopp der Einrückung; auch im Kontextmenü unter *Anzeigeelemente* → *Einrückungslinien* |
+| `ColumnGuide` | `1` / `0` (Standard `0`) | Senkrechte Linie in der Spalte des Cursors; auch im Kontextmenü unter *Anzeigeelemente* → *Spaltenlinie am Cursor* |
 | `AutoTight` | `1` / `0` (Standard `1`) | Dateien mit einer Endung aus `TightExtensions` bekommen keinen zusätzlichen Zeilenabstand; auch im Kontextmenü unter *Zeilenabstand* → *Bei NFO/DIZ immer eng* |
 | `TightExtensions` | Endungen (Standard `nfo diz ans`) | Dateitypen, die bei `AutoTight=1` mit engen Zeilen angezeigt werden; getrennt durch Leerzeichen, Kommas oder Semikolons |
 | `ExcludeExtensions` | leer (Standard) oder Endungen, z. B. `ts mts` | Dateitypen, die Synta ablehnt, sodass der Total Commander den nächsten Betrachter nimmt; getrennt durch Leerzeichen, Kommas oder Semikolons |
