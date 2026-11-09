@@ -16,7 +16,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 ## Features
 
 - **Show formatted** (Ctrl+Shift+B, icon button next to *Word wrap*): JSON, XML, HTML, CSS, SQL and C-like languages pretty-printed; only white space changes
-- **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` (German keyboard: `ß` / `´`; also `=` / `\`) fold and unfold the block around the cursor, `Ctrl+Alt+` the same keys all blocks, `Ctrl+Shift+/` and `Ctrl+Alt+/` toggle (number pad: `Ctrl+-` / `Ctrl++`, with Shift for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
+- **Code folding** for every language: chevrons in the gutter (click), `Ctrl+Shift+[` / `]` (German keyboard: `ß` / `´`; also `=` / `\`) fold and unfold the block around the cursor, `Ctrl+Alt+` the same keys all blocks, `Ctrl+Shift+/` and `Ctrl+Alt+/` toggle (number pad: `Ctrl+Shift+-` / `Ctrl+Shift++`, with Alt for all); also in the context menu under *Code folding*. Blocks come from brackets and indentation (Markdown: headings, INI: sections). Optionally the number of hidden lines is shown behind the dots: `... (121 Lines)`
 - **NFO, DIZ and ANS files** open with tight lines, so ASCII art stays connected (*Line spacing* → *Always tight for NFO/DIZ*)
 - **Occurrence highlighting**: select a word and its other occurrences in the visible lines are tinted (*View elements* → *Highlight occurrences*)
 - **Search field** in the top bar or status bar (off by default; *View elements* → *Search field in the toolbar*): Enter = next, Shift+Enter = previous, the `.*` button searches with a regular expression; `Ctrl+Shift+F` jumps to the field
@@ -25,7 +25,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
 - Search with Total Commander's Find (F7 / F3), go to line (Ctrl+G), jump to the matching bracket (Ctrl+B; the bracket pair next to the cursor is highlighted); F4 edits the file in Total Commander's editor
-- Zoom with Ctrl+mouse wheel or Ctrl+/Ctrl-; selectable font and tab width
+- Zoom with Ctrl+mouse wheel or Ctrl+/Ctrl- (also on the number pad); selectable font and tab width
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
 - Text encodings: UTF-8, UTF-16 (with or without BOM) and legacy code pages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), detected automatically and switchable in the context menu (Encoding); DOS text (box drawing characters, umlauts) is recognized as CP437/CP850/CP852/CP866, and NFO, DIZ, ASC and ANS files open as CP437 by default; files up to 512 MB
@@ -71,12 +71,12 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 | Ctrl+B | *Go to matching bracket* |
 | Ctrl+Shift+B | *Show formatted* on / off |
 | Ctrl+G | *Go to line…* |
-| Ctrl+Shift+[ / ] (German: ß / ´) | Fold / unfold the block at the cursor (number pad: Ctrl+- / Ctrl++) |
-| Ctrl+Alt+[ / ] (German: ß / ´) | Fold / unfold all blocks (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
+| Ctrl+Shift+[ / ] (German: ß / ´) | Fold / unfold the block at the cursor (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
+| Ctrl+Alt+[ / ] (German: ß / ´) | Fold / unfold all blocks (number pad: Ctrl+Alt+- / Ctrl+Alt++) |
 | Ctrl+A, Ctrl+C | Select all, copy |
 | F7 / F3 | Find (Total Commander's search) |
 | F4 | Edit the file in the editor configured in Total Commander |
-| Ctrl+mouse wheel, Ctrl+/Ctrl- | Zoom |
+| Ctrl+mouse wheel, Ctrl+/Ctrl- (also number pad) | Zoom |
 | Arrow keys, Page Up / Down, Home, End | Scroll |
 | F1 | About |
 
