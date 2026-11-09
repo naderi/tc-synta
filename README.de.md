@@ -18,12 +18,14 @@ Dateien ohne Endung werden an ihrem Namen (`Makefile`, `Dockerfile`) an einer `#
 - **Formatiert anzeigen** (Strg+Umschalt+B, Symbol neben *Zeilenumbruch*): JSON, XML, HTML, CSS, SQL und C-ähnliche Sprachen werden schön eingerückt; nur Leerraum ändert sich
 - **Code falten** für jede Sprache: Pfeile am Rand (Klick), `Strg+Umschalt+ß` / `´` (US-Tastatur: `[` / `]`; auch `=` / `\`) falten und öffnen den Block am Cursor, `Strg+Alt+` dieselben Tasten alle Blöcke, `Strg+Umschalt+/` und `Strg+Alt+/` wechseln (Ziffernblock: `Strg+-` / `Strg++`, mit Umschalt für alle); auch im Kontextmenü unter *Code falten*. Die Blöcke ergeben sich aus Klammern und Einrückung (Markdown: Überschriften, INI: Abschnitte). Optional steht die Zahl der ausgeblendeten Zeilen hinter den Punkten: `... (121 Zeilen)`
 - **NFO-, DIZ- und ANS-Dateien** öffnen mit engen Zeilen, damit ASCII-Art zusammenhängt (*Zeilenabstand* → *Bei NFO/DIZ immer eng*)
+- **Vorkommen markieren**: Wird ein Wort markiert, werden seine weiteren Vorkommen in den sichtbaren Zeilen getönt (*Anzeigeelemente* → *Vorkommen markieren*)
+- **Suchfeld** in der oberen Leiste oder der Statusleiste (standardmäßig aus; *Anzeigeelemente* → *Suchfeld in der Leiste*): Eingabe = weiter, Umschalt+Eingabe = zurück, die Schaltfläche `.*` sucht mit regulärem Ausdruck; `Strg+Umschalt+F` springt ins Feld
 - Zeilenumbruch (`W`) und Minimap als Symbol-Schaltflächen – gedimmt, wenn aus, mit Tooltips; Zeilennummern, Einrückungslinien und eine Spaltenlinie am Cursor (beide unter *Anzeigeelemente* schaltbar), hervorgehobene aktuelle Zeile
 - Sprachauswahl oben links, falls eine Datei falsch erkannt wurde; daneben die Kodierungsauswahl (UTF-8, UTF-16, Windows- und DOS-Codepages), auch im Kontextmenü
 - Mit der Maus markieren (Doppelklick: Wort, Klick auf eine Zeilennummer: Zeile), mit Strg+C kopieren, mit Strg+A alles markieren
 - URLs (http, https, ftp, www., mailto) werden als Links eingefärbt; Strg+Klick öffnet sie im Standardbrowser bzw. Mailprogramm (der Mauszeiger wird zur Hand, solange Strg gedrückt ist; mit `LinkClick=1` genügt ein einfacher Klick)
 - Suche mit dem Suchen-Dialog des Total Commanders (F7 / F3), Gehe zu Zeile (Strg+G), Sprung zur passenden Klammer (Strg+B; das Klammerpaar am Cursor wird hervorgehoben); F4 bearbeitet die Datei im Editor des Total Commanders
-- Zoom mit Strg+Mausrad; Schriftart und Tabulatorbreite wählbar
+- Zoom mit Strg+Mausrad oder Strg+/Strg-; Schriftart und Tabulatorbreite wählbar
 - Drucken (Datei > Drucken): farbig auf weißem Papier, mit Zeilennummern, außer bei `PrintLineNumbers=0`; die Optionen "Text umbrechen" und "Auf Seite einpassen" des Total Commanders werden beachtet; bei markiertem Text druckt "Markierung" nur diesen Text
 - Helles und dunkles Design (automatisch wie Windows, wie Total Commander oder fest) im Windows-11-Stil; Farbschemen Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine und Visual Studio (jeweils hell und dunkel)
 - Textkodierungen: UTF-8, UTF-16 (mit oder ohne BOM) und ältere Codepages (Windows 125x, CP866, CP850, KOI8, Shift-JIS, GBK, Big5, ...), automatisch erkannt und im Kontextmenü umschaltbar (Kodierung); DOS-Text (Rahmenzeichen, Umlaute) wird als CP437/CP850/CP852/CP866 erkannt, NFO-, DIZ-, ASC- und ANS-Dateien öffnen standardmäßig als CP437; Dateien bis 512 MB
@@ -74,7 +76,7 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 | Strg+A, Strg+C | Alles markieren, kopieren |
 | F7 / F3 | Suchen (Suche des Total Commanders) |
 | F4 | Datei im Editor des Total Commanders bearbeiten |
-| Strg+Mausrad | Zoom |
+| Strg+Mausrad, Strg+/Strg- | Zoom |
 | Pfeiltasten, Bild auf / ab, Pos1, Ende | Scrollen |
 | F1 | Über Synta |
 
@@ -107,6 +109,10 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `FoldCount` | `1` / `0` (Standard `0`) | Zahl der ausgeblendeten Zeilen hinter den Punkten eines gefalteten Blocks anzeigen, z. B. `... (121 Zeilen)`; auch im Kontextmenü unter *Code falten* |
 | `IndentGuides` | `1` / `0` (Standard `1`) | Senkrechte Linien an jedem Tabstopp der Einrückung; auch im Kontextmenü unter *Anzeigeelemente* → *Einrückungslinien* |
 | `ColumnGuide` | `1` / `0` (Standard `0`) | Senkrechte Linie in der Spalte des Cursors; auch im Kontextmenü unter *Anzeigeelemente* → *Spaltenlinie am Cursor* |
+| `Occurrences` | `1` / `0` (Standard `1`) | Weitere Vorkommen des markierten Wortes tönen (ganze Wörter, nur sichtbare Zeilen); auch im Kontextmenü unter *Anzeigeelemente* → *Vorkommen markieren* |
+| `Search` | `1` / `0` (Standard `0`) | Suchfeld in der Leiste (oben oder Statusleiste, siehe `Buttons`); auch im Kontextmenü unter *Anzeigeelemente* → *Suchfeld in der Leiste* |
+| `SearchRegex` | `1` / `0` (Standard `0`) | Das Suchfeld sucht mit regulärem Ausdruck (ECMAScript-Syntax, zeilenweise); schaltet die Schaltfläche `.*` um |
+| `SearchKey` | `Ctrl+Shift+F` (Standard), `F` für Strg+F, leer für keine | Tastenkombination, die ins Suchfeld springt; Strg+F bleibt standardmäßig bei Total Commander |
 | `AutoTight` | `1` / `0` (Standard `1`) | Dateien mit einer Endung aus `TightExtensions` bekommen keinen zusätzlichen Zeilenabstand; auch im Kontextmenü unter *Zeilenabstand* → *Bei NFO/DIZ immer eng* |
 | `TightExtensions` | Endungen (Standard `nfo diz ans`) | Dateitypen, die bei `AutoTight=1` mit engen Zeilen angezeigt werden; getrennt durch Leerzeichen, Kommas oder Semikolons |
 | `ExcludeExtensions` | leer (Standard) oder Endungen, z. B. `ts mts` | Dateitypen, die Synta ablehnt, sodass der Total Commander den nächsten Betrachter nimmt; getrennt durch Leerzeichen, Kommas oder Semikolons |
