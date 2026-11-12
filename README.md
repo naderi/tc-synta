@@ -116,6 +116,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `AutoTight` | `1` / `0` (default `1`) | Files with an extension from `TightExtensions` get no extra line spacing; also in the context menu under *Line spacing* → *Always tight for NFO/DIZ* |
 | `TightExtensions` | extensions (default `nfo diz ans`) | File types shown with tight lines when `AutoTight=1`; separated by spaces, commas or semicolons |
 | `WrapHomeEnd` | `1` / `0` (default `1`) | With word wrap, Home / End go to the start / end of the displayed row; `0`: of the whole line |
+| `SmartHome` | `1` / `0` (default `1`) | Home goes to the first non-blank character of an indented line first, a second press to the start of the line; `0`: always to the start of the line |
 | `ExcludeExtensions` | empty (default) or extensions, e.g. `ts mts` | File types that Synta declines, so Total Commander uses its next viewer; separated by spaces, commas or semicolons |
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
 | `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |

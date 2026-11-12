@@ -116,6 +116,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `AutoTight` | `1` / `0` (Standard `1`) | Dateien mit einer Endung aus `TightExtensions` bekommen keinen zusätzlichen Zeilenabstand; auch im Kontextmenü unter *Zeilenabstand* → *Bei NFO/DIZ immer eng* |
 | `TightExtensions` | Endungen (Standard `nfo diz ans`) | Dateitypen, die bei `AutoTight=1` mit engen Zeilen angezeigt werden; getrennt durch Leerzeichen, Kommas oder Semikolons |
 | `WrapHomeEnd` | `1` / `0` (Standard `1`) | Bei Zeilenumbruch gehen Pos1 / Ende zum Anfang / Ende der angezeigten Zeile; `0`: der ganzen Zeile |
+| `SmartHome` | `1` / `0` (Standard `1`) | Pos1 geht bei eingerückten Zeilen zuerst zum ersten Zeichen, ein zweiter Druck zum Zeilenanfang; `0`: immer zum Zeilenanfang |
 | `ExcludeExtensions` | leer (Standard) oder Endungen, z. B. `ts mts` | Dateitypen, die Synta ablehnt, sodass der Total Commander den nächsten Betrachter nimmt; getrennt durch Leerzeichen, Kommas oder Semikolons |
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
 | `DetectEncoding` | `1` / `0` (Standard `1`) | Codepage von Dateien erraten, die nicht UTF-8 sind; `0` nimmt immer `DefaultCodepage` |
