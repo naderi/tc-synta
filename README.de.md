@@ -83,31 +83,24 @@ JSON und XML zeigt auch [TreeView](https://totalcmd.net/plugins/treeview) (als B
 
 ### Tasten ändern
 
-Jede Taste oben außer den Scroll-Tasten lässt sich in einem Abschnitt `[Keys]` der `Synta.ini` ändern, eine Zeile pro Aktion: `Action=Ctrl+Shift+B`. Mehrere Alternativen trennt man mit Komma (`Copy=Ctrl+C,Ctrl+Ins`); ein leerer Wert oder `None` schaltet die Aktion ab. Nicht aufgeführte Aktionen behalten ihre Standardbelegung. Eine dort gesetzte Taste hat Vorrang vor der Standardbelegung einer anderen Aktion.
+Die Tasten oben lassen sich bis auf F4, Strg+C, Strg+A, F1, Zoom, F3 / Umschalt+F3 und die Scroll-Tasten (das Suchfeld belegt `SearchKey`) in einem Abschnitt `[Keys]` der `Synta.ini` ändern, eine Zeile pro Aktion: `Action=Ctrl+Shift+B`. Mehrere Alternativen trennt man mit Komma (`GoToLine=Ctrl+G,Ctrl+L`); ein leerer Wert oder `None` schaltet die Aktion ab. Nicht aufgeführte Aktionen behalten ihre Standardbelegung. Eine dort gesetzte Taste hat Vorrang vor der Standardbelegung einer anderen Aktion.
 
 ```ini
 [Keys]
 ToggleFormat=Ctrl+Alt+F
 ToggleWrap=None
-Copy=Ctrl+C,Ctrl+Ins
+GoToLine=Ctrl+G,Ctrl+L
 ```
 
 Zuerst die Umschalttasten `Ctrl` (auch `Strg`), `Shift` (auch `Umschalt`) und `Alt`, dann eine Taste: Buchstabe oder Ziffer, `F1`–`F24`, `Enter`, `Tab`, `Space`, `Esc`, `Home`, `End`, `PgUp`, `PgDn`, `Up`, `Down`, `Left`, `Right`, `Ins`, `Del`, `Back`, `Num0`–`Num9`, `NumPlus`, `NumMinus`, `NumMul`, `NumDiv` oder eine Satzzeichentaste als `[` `]` `\` `/` `;` `'` `=` `-` `,` `.` `+` (`Oem1`–`Oem8` nennen diese Tasten nach ihrem Windows-Code, der vom Tastaturlayout abhängt). Es kommen nur Tasten bei Synta an, die der Total Commander weitergibt.
 
 | Aktion | Standard |
 |---|---|
-| `Edit` | F4 |
-| `Copy` | Strg+C |
-| `SelectAll` | Strg+A |
 | `GoToLine` | Strg+G |
-| `ZoomIn` / `ZoomOut` | Strg+= , Strg+NumPlus / Strg+- , Strg+NumMinus |
-| `Find` | Strg+Umschalt+F (siehe `SearchKey`) |
-| `FindNext` / `FindPrev` | F3 / Umschalt+F3 |
 | `GoToBracket` | Strg+B |
 | `SelectToBracket` | Strg+Alt+B |
 | `ToggleFormat` | Strg+Umschalt+B |
 | `ToggleWrap` | W |
-| `About` | F1 |
 | `FoldBlock` | Strg+Umschalt+[ , Strg+Umschalt+= , Strg+Umschalt+NumMinus |
 | `UnfoldBlock` | Strg+Umschalt+] , Strg+Umschalt+\ , Strg+Umschalt+NumPlus |
 | `ToggleFoldBlock` | Strg+Umschalt+/ |

@@ -83,31 +83,24 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 
 ### Changing the keys
 
-Every key above except the scroll keys can be changed in a `[Keys]` section of `Synta.ini`, one line per action: `Action=Ctrl+Shift+B`. Several alternatives are separated by commas (`Copy=Ctrl+C,Ctrl+Ins`); an empty value or `None` turns the action off. Actions that are not listed keep their default. A key set there wins over the default of another action.
+The keys above can be changed, except F4, Ctrl+C, Ctrl+A, F1, zoom, F3 / Shift+F3 and the scroll keys (`SearchKey` sets the search field key), in a `[Keys]` section of `Synta.ini`, one line per action: `Action=Ctrl+Shift+B`. Several alternatives are separated by commas (`GoToLine=Ctrl+G,Ctrl+L`); an empty value or `None` turns the action off. Actions that are not listed keep their default. A key set there wins over the default of another action.
 
 ```ini
 [Keys]
 ToggleFormat=Ctrl+Alt+F
 ToggleWrap=None
-Copy=Ctrl+C,Ctrl+Ins
+GoToLine=Ctrl+G,Ctrl+L
 ```
 
 Write the modifiers `Ctrl`, `Shift`, `Alt` first, then one key: a letter or digit, `F1`–`F24`, `Enter`, `Tab`, `Space`, `Esc`, `Home`, `End`, `PgUp`, `PgDn`, `Up`, `Down`, `Left`, `Right`, `Ins`, `Del`, `Back`, `Num0`–`Num9`, `NumPlus`, `NumMinus`, `NumMul`, `NumDiv` or a punctuation key as `[` `]` `\` `/` `;` `'` `=` `-` `,` `.` `+` (`Oem1`–`Oem8` name those keys by their Windows code, which depends on the keyboard layout). Only keys that Total Commander passes on reach Synta.
 
 | Action | Default |
 |---|---|
-| `Edit` | F4 |
-| `Copy` | Ctrl+C |
-| `SelectAll` | Ctrl+A |
 | `GoToLine` | Ctrl+G |
-| `ZoomIn` / `ZoomOut` | Ctrl+= , Ctrl+NumPlus / Ctrl+- , Ctrl+NumMinus |
-| `Find` | Ctrl+Shift+F (see `SearchKey`) |
-| `FindNext` / `FindPrev` | F3 / Shift+F3 |
 | `GoToBracket` | Ctrl+B |
 | `SelectToBracket` | Ctrl+Alt+B |
 | `ToggleFormat` | Ctrl+Shift+B |
 | `ToggleWrap` | W |
-| `About` | F1 |
 | `FoldBlock` | Ctrl+Shift+[ , Ctrl+Shift+= , Ctrl+Shift+NumMinus |
 | `UnfoldBlock` | Ctrl+Shift+] , Ctrl+Shift+\ , Ctrl+Shift+NumPlus |
 | `ToggleFoldBlock` | Ctrl+Shift+/ |
