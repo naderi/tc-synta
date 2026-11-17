@@ -24,7 +24,7 @@ Files without an extension are recognized by their name (`Makefile`, `Dockerfile
 - Language picker at the top left, in case a file was recognized wrongly; next to it the encoding picker (UTF-8, UTF-16, Windows and DOS code pages), also in the context menu
 - Select with the mouse (double-click: word, click on a line number: line), copy with Ctrl+C, select all with Ctrl+A
 - URLs (http, https, ftp, www., mailto) are colored as links; Ctrl+click opens one in the default browser or mail program (the pointer turns into a hand while Ctrl is held; `LinkClick=1` makes a plain click enough)
-- Search with Total Commander's Find (F7 / F3; starts at the cursor or the current match, wraps around at the end), go to line (Ctrl+G), jump to the matching bracket (Ctrl+B; the bracket pair next to the cursor is highlighted); F4 edits the file in Total Commander's editor
+- Search with Total Commander's Find (F7 / F3; starts at the cursor or the current match, wraps around at the end), go to line (Ctrl+G), jump to the matching bracket (Ctrl+B) or select up to it (Ctrl+Alt+B; the bracket pair next to the cursor is highlighted); F4 edits the file in Total Commander's editor
 - Zoom with Ctrl+mouse wheel or Ctrl+/Ctrl- (also on the number pad); selectable font and tab width
 - Printing (File > Print): colored on white paper, with line numbers unless `PrintLineNumbers=0`; Total Commander's "wrap text" and "fit to page" options are respected; with text selected, "Selection" prints only that text
 - Light and dark design (automatic like Windows, like Total Commander, or fixed) in the Windows 11 look; color schemes Ayu (Light, Dark, Mirage, Mirage Light), GitHub, Solarized, One, Catppuccin, Gruvbox, Tokyo Night, Rosé Pine and Visual Studio (each in a light and a dark variant)
@@ -69,6 +69,7 @@ JSON and XML are also shown by [TreeView](https://totalcmd.net/plugins/treeview)
 | Key | Action |
 |---|---|
 | Ctrl+B | *Go to matching bracket* |
+| Ctrl+Alt+B | *Select to matching bracket* |
 | Ctrl+Shift+B | *Show formatted* on / off |
 | Ctrl+G | *Go to line…* |
 | Ctrl+Shift+[ / ] (German: ß / ´) | Fold / unfold the block at the cursor (number pad: Ctrl+Shift+- / Ctrl+Shift++) |
