@@ -149,6 +149,14 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |
 | `DefaultCodepage` | code page number, e.g. `437`, `1251` (default `0` = the Windows code page) | Code page for files that are not UTF-8 and where detection finds nothing better |
 
+## Languages
+
+Synta speaks English, German, Spanish, French, Russian, Ukrainian, Chinese (Simplified), Hindi, Portuguese and Persian. It follows the Windows display language; to pick another one, use the right-click menu (*Interface language*) or set `Language=<name or code>` in `Synta.ini` (for example `Persian` or `fa`; `auto` follows Windows).
+
+The texts are plain `.lng` files in the `Languages` folder. To add a language, copy `Languages\Template.lng`, translate the right-hand sides and save it under a new name – it appears in the language list.
+
+Corrections and new translations from native speakers are very welcome – please send them as an [issue](https://github.com/naderi/tc-synta/issues) on this repository.
+
 ## License
 
 Freeware – free to use, but **not for sale**. See [LICENSE](LICENSE). Color palette Ayu by dempfi (MIT license).
