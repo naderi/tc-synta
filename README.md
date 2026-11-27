@@ -148,6 +148,7 @@ More options – *Word wrap*, *Minimap*, *Line numbers*, *Text cursor*, *Buttons
 | `PrintLineNumbers` | `1` / `0` (default `1`) | Line numbers in the printout |
 | `DetectEncoding` | `1` / `0` (default `1`) | Guess the code page of files that are not UTF-8; `0` always uses `DefaultCodepage` |
 | `DefaultCodepage` | code page number, e.g. `437`, `1251` (default `0` = the Windows code page) | Code page for files that are not UTF-8 and where detection finds nothing better |
+| `[Codepages]` section | lines like `437=nfo diz asc ans bbs` or `1251=log` | Code page per file type (extensions separated by spaces, commas or semicolons) for files that are not UTF-8 and where detection finds nothing better – also with `DetectEncoding=0`; overrides `DefaultCodepage` (and the built-in CP437 for NFO/DIZ/ASC/ANS) |
 
 ## Languages
 

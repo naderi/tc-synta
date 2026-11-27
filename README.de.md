@@ -148,6 +148,7 @@ Weitere Optionen – *Zeilenumbruch*, *Minimap*, *Zeilennummern*, *Textcursor*, 
 | `PrintLineNumbers` | `1` / `0` (Standard `1`) | Zeilennummern im Ausdruck |
 | `DetectEncoding` | `1` / `0` (Standard `1`) | Codepage von Dateien erraten, die nicht UTF-8 sind; `0` nimmt immer `DefaultCodepage` |
 | `DefaultCodepage` | Codepage-Nummer, z. B. `437`, `1251` (Standard `0` = Windows-Codepage) | Codepage für Dateien, die nicht UTF-8 sind und bei denen die Erkennung nichts Besseres findet |
+| Abschnitt `[Codepages]` | Zeilen wie `437=nfo diz asc ans bbs` oder `1251=log` | Codepage pro Dateityp (Endungen durch Leerzeichen, Komma oder Semikolon getrennt) für Dateien, die nicht UTF-8 sind und bei denen die Erkennung nichts Besseres findet – auch bei `DetectEncoding=0`; hat Vorrang vor `DefaultCodepage` (und dem eingebauten CP437 für NFO/DIZ/ASC/ANS) |
 
 ## Sprachen
 
